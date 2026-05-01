@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFOMINE | Offline AI Chatbot</title>
+    <meta name="description" content="INFOMINE - Your Private, Local Document Analyzer">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h1 class="sidebar-title">🧠 INFOMINE</h1>
+            <h2 class="sidebar-subtitle">⚙️ Control Panel</h2>
+            
+            <div class="upload-section">
+                <label for="pdf-upload" class="upload-dropzone" id="dropzone">
+                    <span class="upload-icon">📄</span>
+                    <span class="upload-text">Upload your PDFs here</span>
+                    <input type="file" id="pdf-upload" accept=".pdf" multiple hidden>
+                </label>
+                <div id="file-list" class="file-list"></div>
+                <button id="process-btn" class="primary-btn">Process Documents</button>
+            </div>
+            
+            <hr class="divider">
+            
+            <h3 class="advanced-tools-title">Advanced Tools</h3>
+            <div class="tools-grid">
+                <button id="summarize-btn" class="tool-btn">📝 Summarize</button>
+                <button id="quiz-btn" class="tool-btn">🎯 Generate Quiz</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1 class="gradient-text">🧠 INFOMINE Offline Intelligence</h1>
+                <p class="sub-text">Your Private, Local Document Analyzer</p>
+            </header>
+
+            <!-- Dynamic Views (Chat, Summary, Quiz) -->
+            <div id="dynamic-view" class="dynamic-view">
+                <!-- Chat View (Default) -->
+                <div id="chat-view" class="view-container active">
+                    <div class="chat-history" id="chat-history">
+                        <!-- Chat messages will appear here -->
+                        <div class="chat-message assistant">
+                            <div class="avatar">🧠</div>
+                            <div class="message-content">Hello! I am INFOMINE, your offline document intelligence assistant. Please upload a PDF to get started.</div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chat-input" placeholder="Ask a question about the document..." disabled>
+                        <button id="send-btn" class="send-btn" disabled>Send</button>
+                    </div>
+                </div>
+
+                <!-- Summary View -->
+                <div id="summary-view" class="view-container hidden">
+                    <h2>Document Summary</h2>
+                    <div id="summary-content" class="content-box">
+                        <div class="loader hidden">Generating summary using local LLM...</div>
+                        <div id="summary-text"></div>
+                    </div>
+                    <button id="back-to-chat-sum" class="secondary-btn mt-20">Back to Chat</button>
+                </div>
+
+                <!-- Quiz View -->
+                <div id="quiz-view" class="view-container hidden">
+                    <h2>Generated Quiz</h2>
+                    <div id="quiz-content" class="content-box">
+                        <div class="loader hidden">Generating quiz questions...</div>
+                        <div id="quiz-questions"></div>
+                    </div>
+                    <button id="back-to-chat-quiz" class="secondary-btn mt-20">Back to Chat</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
